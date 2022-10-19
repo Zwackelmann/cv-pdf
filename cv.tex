@@ -1,0 +1,292 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors
+% ------------
+% * ifokkema
+% * Bertbk
+% * Hespe
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand\labelitemi{\tiny$\bullet$}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+%	\newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+%	\usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Simon Barthel}
+% job title/career
+\cvjobtitle{\begin{flushleft}Data Scientist \break Backend Developer\end{flushleft}}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/profile.jpg}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{June 18th 1987}
+% email address
+\cvmail{s.b4rth3l@gmail.com}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+    % include gosquare national flags from https://github.com/gosquared/flags;
+    % naming according to ISO 3166-1 alpha-2 country codes
+    \graphicspath{{pics/flags/}}
+
+    \profilesection{Technical Skills}
+        \shortpointskill{Machine Learning}{TensorFlow, Scikit-Learn, opencv}{5}
+        \shortpointskill{OO/Procedural Prog.}{Python, Java, JavaScript}{5}
+        \shortpointskill{Functional Programming}{Scala, LISPs}{4}
+        \shortpointskill{REST/ Web-Services}{Flask, Play Framework}{4}
+        \shortpointskill{RDBMS / SQL}{PostgreSQL, MySQL, DB2}{5}
+        \shortpointskill{NoSQL Databases}{Cassandra, MongoDB, Kafka}{3}
+        \shortpointskill{Cloud Environments}{AWS, Kubernetes}{4}
+        \shortpointskill{Deployment/ Admin.}{Linux Server, Airflow, Docker}{4}
+        
+    \profilesection{Languages}
+        \pointskill{\flag{DE.png}}{German}{5}
+        \pointskill{\flag{GB.png}}{English}{5}
+        \pointskill{\flag{JP.png}}{Japanese}{3}
+
+    
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+    \profilesection{Education}
+        \aboutme{\begin{flushleft}\fontsize{11pt}{13pt}\selectfont%
+            \textbf{MSc. Computer Science} (GPA: 3.3)\break%
+            Specialization: Information Systems\break%
+            Technische Universität Braunschweig\break%
+            2007 -- 2012 | Brunswick, Germany%
+        \end{flushleft}}
+
+    \profilesection{Employment}
+        \aboutme{\begin{flushleft}\fontsize{11pt}{13pt}\selectfont%
+            \textbf{Scientific Research Assistant} \break%
+            Specialization: Machine Learning, Databases, Digital Libraries\break%
+            Technische Universität Braunschweig\break%
+            2012 -- 2015 | Brunswick, Germany%
+        \end{flushleft}}
+        \aboutme{\begin{flushleft}\fontsize{11pt}{13pt}\selectfont%
+            \textbf{Software Developer/ Consultant}\break%
+            Ameno GmbH\break%
+            2015 -- 2019 | Brunswick, Germany%
+        \end{flushleft}}
+        \aboutme{\begin{flushleft}\fontsize{11pt}{13pt}\selectfont%
+            \textbf{Software Developer/ Data Scientist}\break%
+            TableCheck Inc.\break%
+            2019 -- 2022 | Tokyo, Japan%
+        \end{flushleft}}
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Projects}
+\begin{cvtable}[3]
+    \cvitem{Sep 2019 -\break Apr 2022}{Diner Behavior Prediction}{TableCheck Inc.}{%
+    Diner Behavior prediction and modeling of diner characteristics for business applications%
+    \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+        \item Developed and deployed a highly customized training and prediction pipeline to serve future restaurant occupancy for near future as well as long term trends%
+        \item Modularized neural network with global components learning general behavior patterns and temporal dependencies as well as shop specific components to fine-tune larger shops%
+        \item Prediction of yearly revenue trend%
+        \item Maintenance and deployment of ETL pipeline importing business data%
+    \end{itemize}%
+    \textbf{Tools:} Python, Scala, TensorFlow, Airflow, Kubenetes}
+    \cvitem{Jun 2016 -\break Sep 2019}{Autonomous Driving Project}{VW}{%
+    Development of a new vehicle API and neural network experiments for autonomous driving%
+    \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+        \item Deployed an easy to use Python interface to our vehicles sensor and actuator network (record/receive data %
+              from the vehicle network, send actuating commands, display information, etc.)%
+        \item Distribution and support for research partners who were using the interface%
+        \item Experiments with neural networks for vehicle control%
+        \item Support and consultation in research and experiment design%
+        \item Built a simulation tool based on recordings that was able to react to the neural network's predictions using %
+              vehicle models and homographies%
+    \end{itemize}%
+    \textbf{Tools:} Python, TensorFlow, opencv}
+    \cvitem{Apr 2015 -\break Jun 2016}{Traffic Light Prediction Project}{Audi}{%
+    Prediction of phase changes for dynamic traffic lights%
+    \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+        \item Developed a scalable and fast infrastructure for processing and serving phase change information for %
+              traffic lights in multiple cities updated every second%
+        \item Developed a REST-Service to monitor the prediction quality for each intersection in real-time%
+        \item Life support during tests in several cities around the world%
+    \end{itemize}
+    \textbf{Tools:} Scala, Play-Framework}
+\end{cvtable}
+
+
+\cvsection{Research}
+\begin{cvtable}[1.5]
+    \cvitem{Dec 2012 -- \break Apr 2015}{Scientific Research Assistant}{Technische Universität Braunschweig}{%
+        Research on information systems in the context of mathematical digital libraries%
+        \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+            \item Focus on formula feature-extraction, formula similarity, automatic classification of mathematical publications%
+            \item Research on Altmetrics: Evaluating metrics collected from social media to assess the significance of scientific publications%
+            \item Education: Lecturer for Relational Databases (1+2), SQL Training, Supervision of Bachelor/ Master-Theses etc.%
+        \end{itemize}%
+    }%
+\cvitem{2012}{Master Thesis}{Technische Universität Braunschweig}{%
+        Automatic classification of mathematical publications
+        \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+            \item Classification according to the Mathematics Subject Classification (MSC) based on title and abstract with special focus on formulas%
+            \item Reference implementation for label recommendation for the digital library of `Zentralblatt Math'%
+        \end{itemize}%
+    \textbf{Tools:} Scala, Play-Framework, Python, Flask, Weka, Matlab}%
+\end{cvtable}
+
+\newpage
+\makebacksidebar
+
+\cvsection{Publications}
+    Barthel S., Tönnies S., Balke WT. (2013) \textbf{Large-Scale Experiments for Mathematical Document Classification} -- ICADL'13\par
+%     \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+%         \item Summarizes the Master Thesis' results into a publication%
+%         \item Generalizes the formula tokenization as a way to embed domain specific knowledge into the classification%
+%         \item Sketches the workflow in an actual digital library editorial process (as a result of consultation with editors from `Zentralblatt Math')%
+%     \end{itemize}
+
+\hspace{5em}
+
+Barthel S., Tönnies S., Köhncke B., Siehndel P., Balke WT. (2015) \textbf{What does Twitter Measure? Influence of Diverse User Groups in Altmetrics} -- JCDL'15\par
+%     \begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+%         \item Analyzed tweet behavior and user profiles in various scientific fields%
+%         \item Proposed a model to categorize users into different levels of scientific expertise%
+%         \item Extracted current hot topics in the respective scientific fields%
+%     \end{itemize}\par
+    
+\cvsection{Soft Skills/ Work Attitude}
+\begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+    \item I enjoy an honest and appreciative relationship with my colleagues and supervisors%
+    \item I am good at accepting and giving productive feedback%
+    \item I am good at solving time critical problems%
+    \item I am open to learn and embed new technologies into projects%
+    \item I tend to be quiet and introverted, however I enjoy exchanging knowledge with colleagues%
+    \item After prototyping an experiment, I like to spend time to modularize and optimize my code into meaningful and understandable components%
+\end{itemize}
+
+\cvsection{Hobbies}
+
+\textbf{Beer Brewing}
+\begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+    \item Brewed over 20 different beers with own equipment sharing with family and friends.%
+    \item Automated several parts of the brewing process with self made circuits and Arduino software.%
+\end{itemize}    
+
+\textbf{Cooking/ Baking}
+\begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+    \item In Japan I desperately missed German style bread. So I started baking traditional sourdough bread from scratch%
+    \item I have a fascination for fermented food like Natto, Kimchi or Sauerkraut, which I occasionally do myself%
+    \item I like to embed different influences from various cuisines and cultures to cook unique meals%
+\end{itemize}
+
+\textbf{Electronics/ Tinkering}
+\begin{itemize}[topsep=3pt,itemsep=1pt,leftmargin=*,parsep=1pt]%
+    \item I regularly start small projects including or combining wood work, electronics and programming%
+\end{itemize}
+
+% \newgeometry{
+% 	top=\topbottommargin,
+% 	bottom=\topbottommargin,
+% 	right=\leftrightmargin,
+% 	left=\leftrightmargin
+% }
+
+
+\cvsignature
+
+\end{document}
